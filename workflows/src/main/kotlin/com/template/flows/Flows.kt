@@ -1,7 +1,6 @@
 package com.template.flows
 import com.r3.corda.lib.tokens.workflows.flows.rpc.CreateEvolvableTokens
 import net.corda.core.contracts.UniqueIdentifier
-import com.template.flows.RealEstateEvolvableTokenType
 import net.corda.core.identity.Party
 import net.corda.core.flows.FlowException
 import net.corda.core.transactions.SignedTransaction
@@ -9,10 +8,8 @@ import net.corda.core.flows.FlowLogic
 import net.corda.core.flows.StartableByRPC
 import co.paralleluniverse.fibers.Suspendable
 import com.google.common.collect.ImmutableList
-import com.r3.corda.lib.tokens.contracts.EvolvableTokenContract
 import com.r3.corda.lib.tokens.contracts.states.FungibleToken
 import com.r3.corda.lib.tokens.contracts.types.IssuedTokenType
-import com.template.contracts.Token_Contract
 import net.corda.core.contracts.Amount
 import java.math.BigDecimal
 import net.corda.core.contracts.TransactionState
@@ -21,18 +18,8 @@ import net.corda.core.node.services.vault.QueryCriteria
 import java.util.*
 import com.r3.corda.lib.tokens.workflows.flows.rpc.*;
 import com.r3.corda.lib.tokens.contracts.utilities.of
-import com.r3.corda.lib.tokens.contracts.utilities.TokenUtilities
-
 import com.r3.corda.lib.tokens.contracts.utilities.getAttachmentIdForGenericParam
 import com.r3.corda.lib.tokens.workflows.types.PartyAndAmount
-import net.corda.core.node.services.queryBy
-import net.corda.core.contracts.StateAndRef
-
-import net.corda.core.utilities.ProgressTracker
-import net.corda.core.flows.InitiatingFlow
-import net.corda.core.flows.InitiatedBy
-import net.corda.core.flows.FlowSession
-import com.r3.corda.lib.tokens.contracts.types.TokenPointer
 
 
 
