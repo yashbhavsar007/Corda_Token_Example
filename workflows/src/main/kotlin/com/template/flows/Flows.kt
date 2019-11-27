@@ -111,3 +111,24 @@ class MoveEvolvableFungibleTokenFlow( private  val tokenId : String,
     }
 }
 
+
+@StartableByRPC
+class RedeemEvolvableFungibleTokenFlow(private  val tokenId : String,
+                                       private  val quantity : Long,
+                                       private  val issuer : Party ) : FlowLogic<SignedTransaction>(){
+
+    @Suspendable
+    @Throws(FlowException::class)
+    override fun call(): SignedTransaction {
+        val uuid = UUID.fromString(tokenId)
+        val queryCriteria = QueryCriteria.LinearStateQueryCriteria(null,ImmutableList.of(uuid),null,Vault.StateStatus.UNCONSUMED,null)
+
+        val stateRef = serviceHub.vaultService.queryBy(RealEstateEvolvableTokenType::class.java,queryCriteria).states.get(0)
+
+        val evolvableTokenType = stateRef.state.data
+
+        val tokenPointer = evolvableTokenType.toPointer(evolvableTokenType::class.java)
+
+        return subFlow(RedeemFungibleTokens(quantity of tokenPointer , issuer))
+    }
+}
