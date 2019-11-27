@@ -5,3 +5,7 @@
 # Corda Token Example
 
 **Do not use this repository because code is still under construction.**
+
+<p align="center">
+  <img src="img/alert.jpg"  width="500">
+</p>
