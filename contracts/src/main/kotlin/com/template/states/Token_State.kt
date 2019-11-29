@@ -27,21 +27,6 @@ class TestTokenType(val valuation: BigDecimal,
     override val maintainers: List<Party>
         get() = ImmutableList.of(maintainer)
 
-    fun getUniqueIdentifier(): UniqueIdentifier {
-        return linearId
-    }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
-        val that = o as TestTokenType?
-        return fractionDigits == that!!.fractionDigits &&
-                valuation == that.valuation &&
-                maintainer == that.maintainer &&
-                linearId == that.linearId
-    }
 
-    override fun hashCode(): Int {
-        return Objects.hash(valuation, maintainer, linearId, fractionDigits)
-    }
 }
