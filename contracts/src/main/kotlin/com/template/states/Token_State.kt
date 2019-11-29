@@ -1,4 +1,4 @@
-package com.template.flows
+package com.template.states
 
 import co.paralleluniverse.fibers.Suspendable
 import net.corda.core.flows.*
@@ -19,7 +19,7 @@ import java.util.Objects
 @InitiatingFlow
 @StartableByRPC
 @BelongsToContract(Token_Contract::class)
-class RealEstateEvolvableTokenType(val valuation: BigDecimal,
+class TestTokenType(val valuation: BigDecimal,
                                    val maintainer: Party,
                                    override val linearId: UniqueIdentifier,
                                    override val fractionDigits: Int) : EvolvableTokenType() {
@@ -34,7 +34,7 @@ class RealEstateEvolvableTokenType(val valuation: BigDecimal,
     override fun equals(o: Any?): Boolean {
         if (this === o) return true
         if (o == null || javaClass != o.javaClass) return false
-        val that = o as RealEstateEvolvableTokenType?
+        val that = o as TestTokenType?
         return fractionDigits == that!!.fractionDigits &&
                 valuation == that.valuation &&
                 maintainer == that.maintainer &&
