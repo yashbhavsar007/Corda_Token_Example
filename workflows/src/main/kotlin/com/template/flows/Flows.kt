@@ -17,12 +17,9 @@ import com.r3.corda.lib.tokens.workflows.flows.rpc.*;
 import com.r3.corda.lib.tokens.contracts.utilities.of
 import com.r3.corda.lib.tokens.contracts.utilities.getAttachmentIdForGenericParam
 import com.r3.corda.lib.tokens.workflows.types.PartyAndAmount
-import com.template.contracts.Token_Contract
 import com.template.states.TestTokenType
 import net.corda.core.contracts.*
 import net.corda.core.flows.InitiatingFlow
-import net.corda.core.transactions.TransactionBuilder
-
 
 @InitiatingFlow
 @StartableByRPC
@@ -123,3 +120,12 @@ class RedeemEvolvableFungibleTokenFlow(private  val tokenId : String,
         return subFlow(RedeemFungibleTokens(quantity of tokenPointer , issuer))
     }
 }
+
+
+
+
+
+
+
+
+
