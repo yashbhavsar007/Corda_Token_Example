@@ -120,12 +120,3 @@ class RedeemEvolvableFungibleTokenFlow(private  val tokenId : String,
         return subFlow(RedeemFungibleTokens(quantity of tokenPointer , issuer))
     }
 }
-
-
-
-
-
-
-
-
-
