@@ -7,10 +7,10 @@ import java.math.BigDecimal
 // * Contract *
 // ************
 class Token_Contract : Contract {
-    companion object {
-        // Used to identify our contract when building a transaction.
-        const val ID = "com.template.contracts.TemplateContract"
-    }
+//    companion object {
+//        // Used to identify our contract when building a transaction.
+//        const val ID = "com.template.contracts.TemplateContract"
+//    }
 
     interface Commands : CommandData {
        // class issueCommand : TypeOnlyCommandData(), Commands
